@@ -312,4 +312,19 @@ fieldset.campo {
   }
 }
 
+/* Safari iOS: fecha y hora respetan el ancho y la altura de los demás campos */
+.formulario input[type="date"],
+.formulario input[type="time"] {
+  -webkit-appearance: none;
+  appearance: none;
+  display: block;
+  min-width: 0;
+  max-width: 100%;
+  min-height: 3.2rem;
+  text-align: left;
+}
 
+.formulario input[type="date"]::-webkit-date-and-time-value {
+  text-align: left;
+  min-height: 1.4em;
+}
