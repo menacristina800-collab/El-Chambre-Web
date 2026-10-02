@@ -1,0 +1,315 @@
+/* =========================================================
+   Panadería El Chambre — Página de contacto (contacto.html)
+   ========================================================= */
+
+/* Mapa incrustado (página de contacto) */
+.mapa {
+  border-radius: var(--radio);
+  overflow: hidden;
+  border: 2px solid var(--tinta-2);
+}
+
+.mapa iframe {
+  width: 100%;
+  height: 280px;
+  border: 0;
+}
+
+.contacto-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.formulario {
+  background: var(--blanco);
+  color: var(--tinta);
+  border-radius: var(--radio);
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.formulario h2 {
+  font-size: 2.4rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.1rem 1.2rem;
+  margin-top: 1.5rem;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.campo-completo {
+  grid-column: 1 / -1;
+}
+
+.campo label,
+.campo legend {
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.opcional {
+  font-weight: 400;
+  color: #6f6259;
+}
+
+.ayuda {
+  font-size: 0.85rem;
+  color: #6f6259;
+}
+
+.formulario input:not([type="radio"], [type="checkbox"]),
+.formulario select,
+.formulario textarea {
+  width: 100%;
+  font: inherit;
+  font-size: 1rem;
+  color: var(--tinta);
+  background: var(--harina);
+  border: 2px solid transparent;
+  border-radius: 12px;
+  padding: 0.8rem 1rem;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.formulario textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+.formulario input:hover,
+.formulario select:hover,
+.formulario textarea:hover {
+  border-color: var(--harina-2);
+}
+
+.formulario input:focus,
+.formulario select:focus,
+.formulario textarea:focus {
+  outline: none;
+  border-color: var(--tinta);
+  background: var(--blanco);
+}
+
+/* Estados de validación HTML: solo se marcan después de que la persona interactúa */
+.formulario input:user-invalid,
+.formulario select:user-invalid,
+.formulario textarea:user-invalid {
+  border-color: var(--rojo);
+  background: #fde8e6;
+}
+
+.formulario input:user-valid:not([type="radio"], [type="checkbox"]),
+.formulario textarea:user-valid {
+  border-color: #3b8a4a;
+}
+
+fieldset.campo {
+  border: 0;
+}
+
+.opciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.35rem;
+}
+
+/* Radios con apariencia de botón usando :checked */
+.opcion input {
+  position: absolute;
+  opacity: 0;
+}
+
+.opcion span {
+  display: block;
+  padding: 0.6rem 1.1rem;
+  border: 2px solid var(--harina-2);
+  border-radius: 999px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.opcion input:checked + span {
+  background: var(--tinta);
+  border-color: var(--tinta);
+  color: var(--blanco);
+}
+
+.opcion input:focus-visible + span {
+  outline: 3px solid var(--corteza);
+  outline-offset: 2px;
+}
+
+.check {
+  display: flex;
+  gap: 0.7rem;
+  align-items: flex-start;
+  font-size: 0.95rem;
+}
+
+.check input {
+  width: 20px;
+  height: 20px;
+  margin-top: 0.2rem;
+  accent-color: var(--rojo);
+  flex-shrink: 0;
+}
+
+.form-acciones {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 0.5rem;
+}
+
+.form-acciones .btn-borde {
+  color: var(--tinta);
+}
+
+.form-acciones .btn-borde:hover {
+  background: var(--harina);
+}
+
+.contacto-info {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.contacto-card {
+  background: var(--tinta-2);
+  border-radius: var(--radio);
+  padding: 1.6rem;
+}
+
+.contacto-card h2 {
+  font-size: 1.6rem;
+  margin-bottom: 0.6rem;
+}
+
+.contacto-card p,
+.contacto-card address {
+  color: var(--texto-suave);
+}
+
+.contacto-card a {
+  color: var(--blanco);
+  font-weight: 700;
+}
+
+/* Mapas desplegables de cada sucursal */
+.sucursal-mapa {
+  border-top: 1px solid #4a3f3a;
+  padding-block: 0.8rem;
+}
+
+.sucursal-mapa summary {
+  cursor: pointer;
+  font-weight: 800;
+  color: var(--blanco);
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sucursal-mapa summary::-webkit-details-marker {
+  display: none;
+}
+
+.sucursal-mapa summary::after {
+  content: "+";
+  font-size: 1.4rem;
+  color: var(--rojo);
+}
+
+.sucursal-mapa[open] summary::after {
+  content: "–";
+}
+
+.sucursal-mapa address {
+  margin-block: 0.5rem 0.8rem;
+}
+
+/* Preguntas frecuentes */
+.faq {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.faq-lista {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.faq details {
+  background: var(--blanco);
+  border: 2px solid var(--tinta);
+  border-radius: 14px;
+  padding: 1rem 1.3rem;
+}
+
+.faq summary {
+  cursor: pointer;
+  font-weight: 800;
+  font-size: 1.08rem;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq summary::after {
+  content: "+";
+  color: var(--rojo);
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.faq details[open] summary::after {
+  content: "–";
+}
+
+.faq details p {
+  margin-top: 0.7rem;
+  color: #5b4d44;
+}
+
+.faq details a {
+  font-weight: 700;
+}
+
+/* ===== Responsive y accesibilidad ===== */
+
+@media (max-width: 800px) {
+  .faq {
+    grid-template-columns: 1fr;
+  }
+
+  .contacto-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
