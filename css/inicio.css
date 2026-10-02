@@ -1,0 +1,442 @@
+/* =========================================================
+   Panadería El Chambre — Página de inicio (index.html)
+   ========================================================= */
+
+/* Fondos rojos: degradado suave hacia un rojo más profundo + textura de puntitos
+   (como bolsa de panadería). Los puntos son oscuros, así el contraste solo mejora. */
+.hero {
+  background:
+    radial-gradient(rgba(0, 0, 0, 0.08) 1.2px, transparent 1.7px) 0 0 / 22px 22px,
+    linear-gradient(160deg, var(--rojo) 0%, var(--rojo) 45%, var(--rojo-profundo) 100%);
+  background-color: var(--rojo);
+}
+
+.btn-sm {
+  padding: 0.55rem 1.2rem;
+  font-size: 0.95rem;
+}
+
+.hero {
+  padding-block: clamp(3rem, 7vw, 5.5rem) 0;
+  overflow: hidden;
+}
+
+.hero-titulo {
+  text-align: center;
+}
+
+.hero .acciones {
+  justify-content: center;
+}
+
+.hero-titulo h1 {
+  font-size: clamp(3.2rem, 9vw, 7.5rem);
+  line-height: 0.92;
+  margin-bottom: 1.2rem;
+}
+
+.hero-sub {
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  font-weight: 700;
+  margin: 0 auto 1.5rem;
+}
+
+.tags {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.tags li {
+  background: var(--tinta);
+  padding: 0.3rem 0.95rem;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 0.9rem;
+}
+
+/* Cinta que se desplaza: reemplaza la foto de arriba */
+.cinta {
+  margin-top: clamp(3rem, 7vw, 5rem);
+  background: var(--tinta);
+  transform: rotate(-1.5deg);
+  width: 104%;
+  margin-left: -2%;
+  padding-block: 1rem;
+  overflow: hidden;
+}
+
+.cinta-pista {
+  display: flex;
+  width: max-content;
+  animation: desplazar 32s linear infinite;
+}
+
+.cinta ul {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.cinta li {
+  font-family: var(--fuente-titulos);
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding-inline: 1.2rem;
+}
+
+.cinta li::after {
+  content: "✺";
+  color: var(--rojo);
+  margin-left: 2.4rem;
+}
+
+/* Destacados: mosaico con una pieza grande */
+.destacados {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 1.2rem;
+}
+
+.producto {
+  display: flex;
+  flex-direction: column;
+  background: var(--tinta-2);
+  border-radius: var(--radio);
+  overflow: hidden;
+}
+
+.producto .foto {
+  border-radius: 0;
+}
+
+/* Tarjetas chicas: foto vertical a la izquierda y texto a la derecha.
+   Antes la foto (vertical) iba en una caja horizontal y se veía un tercio. */
+.producto:not(.producto-grande) {
+  flex-direction: row;
+}
+
+/* La foto ocupa casi la mitad de la tarjeta y todo su alto:
+   con esas medidas queda cerca de 3:5, la proporción de las fotos */
+.producto:not(.producto-grande) .foto {
+  flex: 0 0 48%;
+}
+
+.producto:not(.producto-grande) .producto-info {
+  align-self: center;
+}
+
+.producto-grande {
+  grid-row: span 2;
+}
+
+/* Misma proporción que el arte del combo (4:5): se ve completo */
+.producto-grande .foto {
+  aspect-ratio: 4 / 5;
+}
+
+.producto-info {
+  padding: 1.3rem 1.4rem 1.5rem;
+}
+
+.producto-info p {
+  color: var(--texto-suave);
+}
+
+.producto-grande h3 {
+  font-size: 2.2rem;
+}
+
+/* Sello circular de temporada (solo CSS): reemplaza a la foto en Inicio */
+.sello-temporada {
+  justify-self: center;
+  display: grid;
+  place-content: center;
+  gap: 0.2rem;
+  width: min(100%, 300px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--tinta);
+  color: var(--harina);
+  outline: 3px dashed var(--tinta);
+  outline-offset: 8px;
+  text-align: center;
+  text-transform: uppercase;
+  transform: rotate(-8deg);
+}
+
+.sello-temporada span {
+  font-weight: 800;
+  letter-spacing: 0.25em;
+  font-size: 0.9rem;
+}
+
+.sello-temporada strong {
+  font-family: var(--fuente-titulos);
+  font-weight: 400;
+  font-size: clamp(3.5rem, 8vw, 5rem);
+  line-height: 1;
+  color: var(--corteza);
+  text-transform: none;  /* "g" de gramos va en minúscula */
+}
+
+/* Visitanos: dirección y horario de las sucursales */
+.horario {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.8rem 1rem;
+  margin-bottom: 2rem;
+}
+
+.horario div {
+  border-top: 3px solid var(--rojo);
+  padding-top: 0.5rem;
+}
+
+.horario dt {
+  font-weight: 700;
+}
+
+.horario dd {
+  font-family: var(--fuente-titulos);
+  font-size: 1.8rem;
+  line-height: 1.1;
+}
+
+.sucursales {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.sucursal {
+  background: var(--blanco);
+  color: var(--tinta);
+  border: 2px solid var(--tinta);
+  border-radius: var(--radio);
+  padding: 1.2rem 1.3rem;
+}
+
+.sucursal h3 {
+  color: var(--rojo);
+}
+
+.sucursal address {
+  font-size: 0.98rem;
+  margin-bottom: 0.8rem;
+}
+
+.sucursal a {
+  font-weight: 800;
+}
+
+.producto-info .sello {
+  margin-bottom: 0.6rem;
+}
+
+/* Lo que andan diciendo: globos de diálogo alternados (izquierda / derecha) */
+.testimonios {
+  display: grid;
+  gap: 1.8rem;
+  max-width: 860px;
+  margin-inline: auto;
+}
+
+.testimonio {
+  width: min(100%, 560px);
+}
+
+/* Los pares se van a la derecha, como en un chat */
+.testimonio:nth-child(even) {
+  justify-self: end;
+}
+
+.testimonio blockquote {
+  position: relative;
+  background: var(--harina);
+  color: var(--tinta);
+  border-radius: 1.4rem;
+  padding: 1.1rem 1.4rem;
+  font-weight: 600;
+}
+
+/* Colita del globo: un triángulo hecho con bordes */
+.testimonio blockquote::after {
+  content: "";
+  position: absolute;
+  bottom: -16px;
+  left: 2rem;
+  border-top: 18px solid var(--harina);
+  border-right: 20px solid transparent;
+}
+
+.testimonio:nth-child(even) blockquote {
+  background: var(--corteza);
+}
+
+.testimonio:nth-child(even) blockquote::after {
+  left: auto;
+  right: 2rem;
+  border-top-color: var(--corteza);
+  border-right: 0;
+  border-left: 20px solid transparent;
+}
+
+.testimonio figcaption {
+  margin-top: 1.2rem;
+  padding-inline: 1.4rem;
+  font-weight: 700;
+  color: var(--texto-suave);
+}
+
+.testimonio:nth-child(even) figcaption {
+  text-align: right;
+}
+
+.nota-testimonios {
+  margin: 2.5rem auto 0;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+}
+
+.chambrito-claro .globo {
+  background: #fff;
+}
+
+/* Chisme de cada producto destacado: aparece al pasar el mouse */
+.producto {
+  position: relative;
+}
+
+.chisme {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  right: 1rem;
+  z-index: 2;
+  background: var(--blanco);
+  color: var(--tinta);
+  border: 3px dashed var(--tinta);
+  border-radius: 1rem;
+  padding: 0.6rem 0.9rem;
+  font-weight: 700;
+  font-size: 0.92rem;
+  max-width: none;
+  transform: rotate(-2deg);
+}
+
+.chisme::before {
+  content: "Psst… ";
+  color: var(--rojo);
+}
+
+/* Cómo pedir en 3 pasos: contador CSS para los números grandes */
+.pasos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+  list-style: none;
+  counter-reset: paso;
+}
+
+.pasos li {
+  counter-increment: paso;
+  background: var(--blanco);
+  border: 2px solid var(--tinta);
+  border-radius: var(--radio);
+  padding: 1.6rem;
+}
+
+.pasos li::before {
+  content: counter(paso);
+  display: block;
+  font-family: var(--fuente-titulos);
+  font-size: 3.4rem;
+  line-height: 1;
+  color: var(--rojo);
+  margin-bottom: 0.5rem;
+}
+
+.pasos p {
+  color: #5b4d44;
+}
+
+.pasos a {
+  color: var(--tinta);
+  font-weight: 700;
+}
+
+@keyframes desplazar {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ===== Responsive y accesibilidad ===== */
+
+/* En pantallas con mouse el chisme se esconde hasta el :hover;
+   en celulares (sin hover) se queda visible */
+@media (hover: hover) {
+  .chisme {
+    opacity: 0;
+    transform: translateY(-8px) rotate(-2deg);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  .producto:hover .chisme {
+    opacity: 1;
+    transform: translateY(0) rotate(-2deg);
+  }
+}
+
+@media (max-width: 800px) {
+  .pasos {
+    grid-template-columns: 1fr;
+  }
+
+  .destacados {
+    grid-template-columns: 1fr;
+  }
+
+  .producto-grande {
+    grid-row: auto;
+  }
+
+  /* En una sola columna la tarjeta no tiene alto fijo: el ancho manda */
+  .producto:not(.producto-grande) {
+    align-items: flex-start;  /* la foto no se estira: mantiene su 3:5 */
+  }
+
+  .producto:not(.producto-grande) .foto {
+    flex-basis: 40%;
+    aspect-ratio: 3 / 5;
+  }
+
+  /* El sello de temporada, más chico y con aire abajo */
+  .sello-temporada {
+    width: 220px;
+    margin-bottom: 3rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .sucursales {
+    grid-template-columns: 1fr;
+  }
+
+  .hero .acciones .btn {
+    width: 100%;
+  }
+}
+
+/* Quien prefiere menos movimiento no ve la cinta animada */
+@media (prefers-reduced-motion: reduce) {
+  .cinta-pista {
+    animation: none;
+  }
+}

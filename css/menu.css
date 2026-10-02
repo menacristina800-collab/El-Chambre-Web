@@ -1,0 +1,309 @@
+/* =========================================================
+   Panadería El Chambre — Página del menú (menu.html)
+   ========================================================= */
+
+/* --- Menú --- */
+/* Pestañas: los radios se ocultan con recorte (no con display: none)
+   para que sigan recibiendo el foco del teclado */
+.pestanas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.pestana-radio {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.pestana {
+  padding: 0.5rem 1.2rem;
+  border: 2px solid var(--tinta-2);
+  border-radius: 999px;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.pestana:hover {
+  border-color: var(--rojo);
+}
+
+/* Pestaña activa: el label que va justo después del radio marcado */
+.pestana-radio:checked + .pestana {
+  background: var(--harina);
+  border-color: var(--harina);
+  color: var(--tinta);
+}
+
+/* Anillo de foco visible cuando se navega con el teclado */
+.pestana-radio:focus-visible + .pestana {
+  outline: 3px solid var(--corteza);
+  outline-offset: 3px;
+}
+
+/* Paneles: ocultos por defecto; ocupan toda la fila debajo de las pestañas */
+.categoria {
+  display: none;
+  flex-basis: 100%;
+  margin-top: 2.5rem;
+}
+
+/* Se muestra solo el panel cuyo radio está marcado */
+#tab-postres:checked ~ #postres,
+#tab-galletonas:checked ~ #galletonas,
+#tab-pan:checked ~ #pan,
+#tab-combo:checked ~ #combo,
+#tab-cafe:checked ~ #cafe {
+  display: block;
+}
+
+/* Enlace "Ver ficha" dentro de cada postre */
+.ver-ficha {
+  justify-self: start;
+  margin-top: 0.3rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+/* --- Fichas de postres con :target --- */
+/* Ocultas por defecto; cubren toda la pantalla cuando son el :target */
+.ficha {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  place-items: center;
+  padding: 1rem;
+}
+
+.ficha:target {
+  display: grid;
+}
+
+/* Fondo oscuro: también cierra la ficha al hacer clic fuera de la caja */
+.ficha-fondo {
+  position: absolute;
+  inset: 0;
+  background: rgba(27, 22, 20, 0.85);
+}
+
+.ficha-caja {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) 1fr;
+  width: min(100%, 780px);
+  max-height: calc(100vh - 2rem);
+  overflow-y: auto;
+  background: var(--tinta);
+  border: 3px solid var(--rojo);
+  border-radius: var(--radio);
+}
+
+.ficha-caja .foto {
+  border-radius: 0;
+  aspect-ratio: 3 / 5;
+}
+
+.ficha-texto {
+  display: grid;
+  align-content: center;
+  gap: 0.8rem;
+  padding: 3.5rem 1.8rem 2rem;
+}
+
+.ficha-texto .precio {
+  margin: 0;
+}
+
+/* El chisme va en un globo punteado, igual que en los destacados */
+.ficha-chisme {
+  background: var(--blanco);
+  color: var(--tinta);
+  border: 3px dashed var(--tinta-2);
+  border-radius: 1rem;
+  padding: 0.7rem 1rem;
+  transform: rotate(-1.5deg);
+}
+
+.ficha-cerrar {
+  position: absolute;
+  top: 0.8rem;
+  right: 0.8rem;
+  z-index: 1;
+  background: var(--tinta);
+  color: var(--blanco);
+  border: 2px solid var(--blanco);
+  border-radius: 999px;
+  padding: 0.3rem 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.ficha-cerrar:hover {
+  background: var(--blanco);
+  color: var(--tinta);
+}
+
+.categoria-grid {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.categoria-grid .foto {
+  position: sticky;
+  top: 100px;
+}
+
+.categoria-grid .foto img {
+  height: auto;
+}
+
+.lista-menu {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.item-menu {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.2rem 1.5rem;
+  padding-block: 1.1rem;
+  border-bottom: 1px dashed #4a3f3a;
+}
+
+.item-menu h3 {
+  font-family: var(--fuente-texto);
+  font-weight: 800;
+  text-transform: none;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.item-menu .precio {
+  margin: 0;
+  grid-row: span 2;
+  align-self: center;
+}
+
+.item-menu p {
+  color: var(--texto-suave);
+  font-size: 0.98rem;
+}
+
+.etiqueta {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 0.4rem;
+  padding: 0.1rem 0.6rem;
+  border-radius: 999px;
+  background: var(--rojo);
+  color: var(--blanco);
+  font-family: var(--fuente-texto);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.precio-consulta {
+  font-family: var(--fuente-texto);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--texto-suave);
+}
+
+/* Tabla de café: datos tabulares (tamaño y precio), no maquetación */
+.tabla-cafe {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tabla-cafe caption {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.tabla-cafe th,
+.tabla-cafe td {
+  text-align: left;
+  padding: 1rem 0.8rem 1rem 0;
+  border-bottom: 1px dashed #4a3f3a;
+}
+
+.tabla-cafe thead th {
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+  border-bottom: 2px solid var(--rojo);
+}
+
+.tabla-cafe tbody th {
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+
+.tabla-cafe tbody th small {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--texto-suave);
+}
+
+.tabla-cafe td:last-child {
+  font-family: var(--fuente-titulos);
+  font-size: 1.25rem;
+  color: var(--corteza);
+  white-space: nowrap;
+  text-align: right;
+  padding-right: 0;
+}
+
+.tabla-cafe thead th:last-child {
+  text-align: right;
+}
+
+/* ===== Responsive y accesibilidad ===== */
+
+@media (max-width: 1000px) {
+  .categoria-grid {
+    grid-template-columns: 260px 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .categoria-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .categoria-grid .foto {
+    position: static;
+    max-width: 260px;
+  }
+}
+
+@media (max-width: 560px) {
+  /* Ficha en una sola columna: foto arriba, texto abajo */
+  .ficha-caja {
+    grid-template-columns: 1fr;
+  }
+
+  .ficha-caja .foto {
+    aspect-ratio: 1;
+  }
+
+  .ficha-caja .foto img {
+    object-position: top;
+  }
+
+  .tabla-cafe td:nth-child(2) {
+    font-size: 0.9rem;
+  }
+}

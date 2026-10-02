@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Menú de Panadería El Chambre: postres con sorbete, galletonas, pan salvadoreño, combo salado y café, con precios.">
+  <title>Menú | Panadería El Chambre</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/menu.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="contenedor">
+      <a class="logo" href="index.html" aria-label="Panadería El Chambre, ir al inicio">
+        <span class="logo-estrellas" aria-hidden="true">★★★★★</span>
+        <span class="logo-nombre">El Chambre</span>
+        <span class="logo-tipo">Panadería</span>
+      </a>
+      <nav class="main-nav" aria-label="Navegación principal">
+        <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="menu.html" aria-current="page">Menú</a></li>
+        <li><a href="ofertas.html">Ofertas</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero" aria-labelledby="titulo-pagina">
+      <div class="contenedor page-hero-grid">
+        <div>
+          <h1 id="titulo-pagina">El menú</h1>
+          <p>Así como somos de chambrosos, así somos de gustositos.</p>
+        </div>
+        <div class="chambrito ">
+          <img src="img/chambrito.svg" alt="" width="130" height="112">
+          <p class="globo">No le digás a nadie, pero La Despechada cura cualquier corazón roto.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MENÚ CON PESTAÑAS (sin JavaScript)
+         Cada pestaña es un radio oculto + su label. Como todos los radios
+         comparten name="categoria", solo uno puede estar marcado a la vez.
+         El CSS muestra el panel cuyo radio está marcado (:checked ~ #panel).
+         Con el teclado: Tab llega a la pestaña activa y las flechas cambian de categoría. -->
+    <section class="seccion" aria-label="Menú por categorías">
+      <div class="contenedor pestanas">
+        <input class="pestana-radio" type="radio" name="categoria" id="tab-postres" checked>
+        <label class="pestana" for="tab-postres">Postres</label>
+        <input class="pestana-radio" type="radio" name="categoria" id="tab-galletonas">
+        <label class="pestana" for="tab-galletonas">Galletonas</label>
+        <input class="pestana-radio" type="radio" name="categoria" id="tab-pan">
+        <label class="pestana" for="tab-pan">Pan</label>
+        <input class="pestana-radio" type="radio" name="categoria" id="tab-combo">
+        <label class="pestana" for="tab-combo">Combo</label>
+        <input class="pestana-radio" type="radio" name="categoria" id="tab-cafe">
+        <label class="pestana" for="tab-cafe">Café</label>
+
+        <section class="categoria" id="postres" aria-labelledby="titulo-postres">
+          <div class="categoria-grid">
+            <figure class="foto">
+              <img src="img/productos/despechada.jpg" width="394" height="660" alt="Vaso de La Despechada con semita pacha, sorbete y salsa secreta">
+            </figure>
+            <div>
+              <h2 id="titulo-postres">Postres con sorbete</h2>
+              <p class="intro">Calientito por dentro, helado por fuera. Todos llevan sorbete y salsa secreta.</p>
+              <div class="lista-menu">
+                <article class="item-menu">
+                  <h3>El Sorullo <span class="etiqueta">El favorito</span></h3>
+                  <span class="precio">$3.50</span>
+                  <p>Brownie, sorbete y la salsa de la casa.</p>
+                  <a class="ver-ficha" href="#ficha-sorullo" aria-label="Ver ficha de El Sorullo">Ver ficha</a>
+                </article>
+                <article class="item-menu">
+                  <h3>Finolis</h3>
+                  <span class="precio">$3.50</span>
+                  <p>Galletona XXL, sorbete de vainilla y salsa secreta.</p>
+                </article>
+                <article class="item-menu">
+                  <h3>Apleneitor</h3>
+                  <span class="precio">$3.50</span>
+                  <p>Pie de manzana, sorbete y salsa secreta.</p>
+                </article>
+                <article class="item-menu">
+                  <h3>La Despechada <span class="etiqueta">Nuevo</span></h3>
+                  <span class="precio">$2.95</span>
+                  <p>Semita pacha, sorbete y salsa secreta. Para superar a cualquiera.</p>
+                  <a class="ver-ficha" href="#ficha-despechada" aria-label="Ver ficha de La Despechada">Ver ficha</a>
+                </article>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="categoria" id="galletonas" aria-labelledby="titulo-galletonas">
+          <div class="categoria-grid">
+            <figure class="foto">
+              <img src="img/productos/galletona-red-velvet.jpg" width="409" height="661" alt="Galletona Red Velvet de El Chambre" loading="lazy">
+            </figure>
+            <div>
+              <h2 id="titulo-galletonas">Galletonas</h2>
+              <p class="intro">Grandes, suaves y para contarlas despacio.</p>
+              <div class="lista-menu">
+                <article class="item-menu">
+                  <h3>Galletona Red Velvet</h3>
+                  <span class="precio">$1.95</span>
+                  <p>Red velvet en versión galleta grande.</p>
+                </article>
+                <article class="item-menu">
+                  <h3>Galletona XL chocochip</h3>
+                  <span class="precio">$1.50</span>
+                  <p>Galleta grande con chispas de chocolate.</p>
+                </article>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="categoria" id="pan" aria-labelledby="titulo-pan">
+          <div class="categoria-grid">
+            <figure class="foto">
+              <img src="img/productos/caja-pan-dulce.jpg" width="391" height="670" alt="Caja de pan dulce de El Chambre en una reunión familiar" loading="lazy">
+            </figure>
+            <div>
+              <h2 id="titulo-pan">Pan y tartas</h2>
+              <p class="intro">Pan salvadoreño de siempre, con el toque de la casa.</p>
+              <div class="lista-menu">
+                <article class="item-menu">
+                  <h3>Peperechas</h3>
+                  <span class="precio precio-consulta">Precio en tienda</span>
+                  <p>Pan dulce salvadoreño clásico.</p>
+                </article>
+                <article class="item-menu">
+                  <h3>Budín</h3>
+                  <span class="precio precio-consulta">Precio en tienda</span>
+                  <p>Gigante, ultra abundante y de receta secreta.</p>
+                </article>
+                <article class="item-menu">
+                  <h3>Flauta XL</h3>
+                  <span class="precio">$1.75</span>
+                  <p>Flauta grande, directo de la vitrina.</p>
+                </article>
+                <article class="item-menu">
+                  <h3>Dona de dulce de leche</h3>
+                  <span class="precio">$1.75</span>
+                  <p>Rellena de dulce de leche.</p>
+                </article>
+                <article class="item-menu">
+                  <h3>Tarta de manzana</h3>
+                  <span class="precio">$5.75</span>
+                  <p>Tarta entera, ideal para compartir. Por encargo.</p>
+                </article>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="categoria" id="combo" aria-labelledby="titulo-combo">
+          <div class="categoria-grid">
+            <figure class="foto">
+              <img src="img/productos/combo-chambre.jpg" width="517" height="649" alt="Combo con calzone socado, ChambroDONA con chispas y Coca-Cola" loading="lazy">
+            </figure>
+            <div>
+              <h2 id="titulo-combo">Combo salado</h2>
+              <p class="intro">El calzone y la ChambroDONA solo se venden en este combo.</p>
+              <div class="lista-menu">
+                <article class="item-menu">
+                  <h3>Combo Chambre muy íntimo <span class="etiqueta">Nuevo</span></h3>
+                  <span class="precio">$3.95</span>
+                  <p>Calzone socado, ChambroDONA con chispas y Coca-Cola.</p>
+                </article>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="categoria" id="cafe" aria-labelledby="titulo-cafe">
+          <div class="categoria-grid">
+            <figure class="foto">
+              <img src="img/productos/cafe.jpg" width="499" height="400" alt="Taza de café junto a un plato de pan dulce" loading="lazy">
+            </figure>
+            <div>
+              <h2 id="titulo-cafe">Café</h2>
+              <p class="intro">No se dice ex preso, se dice espresso. Espressate a tu gusto.</p>
+
+              <table class="tabla-cafe">
+                <caption>Precios de café por tamaño</caption>
+                <thead>
+                  <tr><th scope="col">Bebida</th><th scope="col">Tamaño</th><th scope="col">Precio</th></tr>
+                </thead>
+                <tbody>
+                  <tr><th scope="row">Espresso</th><td>Sencillo / Doble</td><td>$1.00 / $1.50</td></tr>
+                  <tr><th scope="row">Americano</th><td>8 oz / 12 oz</td><td>$1.00 / $1.50</td></tr>
+                  <tr><th scope="row">Capuchino</th><td>8 oz / 12 oz</td><td>$1.75 / $2.25</td></tr>
+                  <tr><th scope="row">Latte</th><td>8 oz / 12 oz</td><td>$1.75 / $2.25</td></tr>
+                  <tr><th scope="row">Iced latte</th><td>16 oz</td><td>$2.75</td></tr>
+                  <tr><th scope="row">Frapuchisme <small>Chocolate o caramelo</small></th><td>12 oz / 16 oz</td><td>$1.95 / $2.50</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- FICHAS DE POSTRES (ventanas emergentes con :target, sin JavaScript)
+         Al hacer clic en "Ver ficha", la URL termina en #ficha-...; ese elemento
+         pasa a ser el :target y el CSS lo muestra encima de la página.
+         "Cerrar" apunta a #postres: la ficha deja de ser el :target y se oculta.
+         Van fuera de las pestañas para que un panel oculto no las esconda. -->
+    <article class="ficha" id="ficha-sorullo" aria-labelledby="titulo-ficha-sorullo">
+      <a class="ficha-fondo" href="#postres" tabindex="-1" aria-hidden="true"></a>
+      <div class="ficha-caja">
+        <a class="ficha-cerrar" href="#postres">Cerrar <span aria-hidden="true">✕</span></a>
+        <figure class="foto">
+          <img class="enfoque-abajo" src="img/productos/sorullo.jpg" width="720" height="1280" alt="Vaso de El Sorullo con capas de brownie, sorbete y salsa de chocolate" loading="lazy">
+        </figure>
+        <div class="ficha-texto">
+          <h2 id="titulo-ficha-sorullo">El Sorullo</h2>
+          <p class="precio">$3.50</p>
+          <p>Brownie, sorbete y la salsa de la casa. Un chambre calientito que te deja helado.</p>
+          <p class="ficha-chisme"><strong>El chisme:</strong> Dicen que nadie se lo termina solo. Mentira.</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="ficha" id="ficha-despechada" aria-labelledby="titulo-ficha-despechada">
+      <a class="ficha-fondo" href="#postres" tabindex="-1" aria-hidden="true"></a>
+      <div class="ficha-caja">
+        <a class="ficha-cerrar" href="#postres">Cerrar <span aria-hidden="true">✕</span></a>
+        <figure class="foto">
+          <img src="img/productos/despechada.jpg" width="394" height="660" alt="Vaso de La Despechada con semita pacha, sorbete y salsa secreta" loading="lazy">
+        </figure>
+        <div class="ficha-texto">
+          <h2 id="titulo-ficha-despechada">La Despechada</h2>
+          <p class="precio">$2.95</p>
+          <p>Semita pacha, sorbete y salsa secreta. Para superar a cualquiera.</p>
+          <p class="ficha-chisme"><strong>El chisme:</strong> No le digás a nadie, pero La Despechada cura cualquier corazón roto.</p>
+        </div>
+      </div>
+    </article>
+
+    <section class="seccion seccion-roja cta-final" aria-labelledby="titulo-cta">
+      <div class="contenedor">
+        <h2 id="titulo-cta">Te va a quedar bien</h2>
+        <p>Pedidos por WhatsApp o directo en la sala de ventas. Precios sujetos a disponibilidad.</p>
+        <div class="acciones">
+          <a class="btn btn-tinta" href="https://wa.me/50372229546" target="_blank" rel="noopener">Pedilo ya por WhatsApp</a>
+          <a class="btn btn-borde" href="ofertas.html">Ver ofertas</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="contenedor">
+      <div class="footer-grid">
+        <div>
+          <a class="logo" href="index.html" aria-label="Panadería El Chambre, ir al inicio">
+            <span class="logo-estrellas" aria-hidden="true">★★★★★</span>
+            <span class="logo-nombre">El Chambre</span>
+            <span class="logo-tipo">Panadería</span>
+          </a>
+          <p class="footer-lema">La juventud del pan salvadoreño</p>
+        </div>
+        <nav aria-label="Navegación del pie de página">
+          <h2>Explorá</h2>
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="menu.html">Menú</a></li>
+            <li><a href="ofertas.html">Ofertas</a></li>
+            <li><a href="nosotros.html">Nosotros</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </nav>
+        <div>
+          <h2>Horario</h2>
+          <ul>
+            <li>Lunes a viernes: 6:00 am – 7:00 pm</li>
+            <li>Sábado: 7:00 am – 5:00 pm</li>
+          </ul>
+        </div>
+        <div>
+          <h2>Contacto</h2>
+          <address>
+            <ul>
+              <li><a href="https://wa.me/50372229546" target="_blank" rel="noopener">WhatsApp +503 7222 9546</a></li>
+              <li><a href="https://www.instagram.com/elchambrepanaderia" target="_blank" rel="noopener">Instagram @elchambrepanaderia</a></li>
+              <li>Merliot: Av. El Boquerón #25-B, Santa Tecla</li>
+              <li>La Sultana: Calle Mediterráneo, Antiguo Cuscatlán</li>
+            </ul>
+          </address>
+        </div>
+      </div>
+      <p class="footer-legal">&copy; 2026 Panadería El Chambre. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Botón fijo de WhatsApp: visible en todas las páginas -->
+  <a class="wa-flotante" href="https://wa.me/50372229546?text=Hola%20El%20Chambre%2C%20quiero%20hacer%20un%20pedido" target="_blank" rel="noopener" aria-label="Pedir por WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H9l-5 4v-4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z" fill="currentColor"/></svg>
+    <span>Pedí por WhatsApp</span>
+  </a>
+
+</body>
+</html>

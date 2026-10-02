@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Panadería El Chambre en Santa Tecla y La Sultana: pan salvadoreño fresco, nuevo y atrevido. Menú, ofertas y pedidos por WhatsApp.">
+  <title>Panadería El Chambre | La juventud del pan salvadoreño</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/inicio.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="contenedor">
+      <a class="logo" href="index.html" aria-label="Panadería El Chambre, ir al inicio">
+        <span class="logo-estrellas" aria-hidden="true">★★★★★</span>
+        <span class="logo-nombre">El Chambre</span>
+        <span class="logo-tipo">Panadería</span>
+      </a>
+      <nav class="main-nav" aria-label="Navegación principal">
+        <ul>
+        <li><a href="index.html" aria-current="page">Inicio</a></li>
+        <li><a href="menu.html">Menú</a></li>
+        <li><a href="ofertas.html">Ofertas</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO: mensaje principal y dos acciones -->
+    <section class="hero" aria-labelledby="titulo-hero">
+      <div class="contenedor hero-titulo">
+        <h1 id="titulo-hero">Te tenemos un chambre muy íntimo</h1>
+        <p class="hero-sub">La juventud del pan salvadoreño</p>
+        <ul class="tags" aria-label="Lo que nos define">
+          <li>#FRESCO</li>
+          <li>#NUEVO</li>
+          <li>#ATREVIDO</li>
+        </ul>
+        <div class="acciones">
+          <a class="btn btn-tinta" href="https://wa.me/50372229546?text=Hola%20El%20Chambre%2C%20quiero%20hacer%20un%20pedido" target="_blank" rel="noopener">Pedilo ya por WhatsApp</a>
+          <a class="btn btn-borde" href="menu.html">Ver el menú</a>
+        </div>
+      </div>
+
+      <!-- Cinta animada con CSS (la lista va dos veces para que el movimiento no se corte) -->
+      <div class="cinta" aria-hidden="true">
+        <div class="cinta-pista">
+          <ul><li>El Sorullo</li><li>Finolis</li><li>Apleneitor</li><li>La Despechada</li><li>Galletona Red Velvet</li><li>ChambroDONA</li><li>Calzone socado</li><li>Frapuchisme</li></ul>
+          <ul><li>El Sorullo</li><li>Finolis</li><li>Apleneitor</li><li>La Despechada</li><li>Galletona Red Velvet</li><li>ChambroDONA</li><li>Calzone socado</li><li>Frapuchisme</li></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- DESTACADOS -->
+    <section class="seccion" aria-labelledby="titulo-destacados">
+      <div class="contenedor">
+        <div class="encabezado-seccion">
+          <h2 id="titulo-destacados">Chambres que sí se pueden contar</h2>
+          <a class="btn btn-borde btn-sm" href="menu.html">Todo el menú</a>
+        </div>
+
+        <div class="destacados">
+          <article class="producto producto-grande">
+            <figure class="foto">
+              <img src="img/productos/combo-chambre.jpg" width="517" height="649" alt="Combo Chambre muy íntimo: calzone socado, ChambroDONA con chispas y Coca-Cola">
+            </figure>
+            <p class="chisme" aria-label="Chisme del producto">Psst… sale más barato que pedir todo por separado.</p>
+            <div class="producto-info">
+              <span class="sello">Nuevo chambre</span>
+              <h3>Combo Chambre muy íntimo</h3>
+              <p>Calzone socado, ChambroDONA con chispas y Coca-Cola. Te va a quedar bien.</p>
+              <span class="precio">$3.95</span>
+            </div>
+          </article>
+
+          <article class="producto">
+            <figure class="foto">
+              <img class="enfoque-abajo" src="img/productos/sorullo.jpg" width="720" height="1280" alt="Vaso de El Sorullo con capas de brownie, sorbete y salsa de chocolate" loading="lazy">
+            </figure>
+            <p class="chisme" aria-label="Chisme del producto">Dicen que nadie se lo termina solo. Mentira.</p>
+            <div class="producto-info">
+              <h3>El Sorullo</h3>
+              <p>Brownie, sorbete y la salsa de la casa. Un chambre calientito que te deja helado.</p>
+              <span class="precio">$3.50</span>
+            </div>
+          </article>
+
+          <article class="producto">
+            <figure class="foto">
+              <img src="img/productos/galletona-red-velvet.jpg" width="409" height="661" alt="Galletona Red Velvet de El Chambre" loading="lazy">
+            </figure>
+            <p class="chisme" aria-label="Chisme del producto">Tuvo su propia residencia en febrero. Toda una estrella.</p>
+            <div class="producto-info">
+              <h3>Galletona Red Velvet</h3>
+              <p>Grande, suave y bien roja. Para contarla despacio.</p>
+              <span class="precio">$1.95</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEMPORADA: sin foto (la ilustración ya sale en Ofertas);
+         en su lugar, un sello hecho solo con CSS -->
+    <section class="temporada" aria-labelledby="titulo-temporada">
+      <div class="contenedor temporada-grid">
+        <p class="sello-temporada" aria-hidden="true">
+          <span>Panetones</span>
+          <strong>400 g</strong>
+          <span>Navidad</span>
+        </p>
+        <div class="temporada-texto">
+          <h2 id="titulo-temporada">La pregunta no es quién lleva el panetón, sino de cuál panadería</h2>
+          <p>Chocoalmendra o de frutas, 400 g. Encargalos por WhatsApp y que el chambre dure más esta Navidad.</p>
+          <div class="acciones">
+            <a class="btn btn-tinta" href="https://wa.me/50372229546" target="_blank" rel="noopener">Encargar panetón</a>
+            <a class="btn btn-borde" href="ofertas.html">Ver ofertas</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- CÓMO PEDIR: secuencia real, por eso es una lista ordenada -->
+    <section class="seccion seccion-clara" aria-labelledby="titulo-pasos">
+      <div class="contenedor">
+        <div class="encabezado-seccion">
+          <h2 id="titulo-pasos">Cómo pedir en 3 pasos</h2>
+          <div class="chambrito chambrito-claro">
+          <img src="img/chambrito.svg" alt="" width="130" height="112">
+          <p class="globo">Psst… no hacemos delivery, pero te lo apartamos y pasás a traerlo calientito.</p>
+        </div>
+        </div>
+        <ol class="pasos">
+          <li>
+            <h3>Elegí tu chambre</h3>
+            <p>Revisá el <a href="menu.html">menú</a> o las <a href="ofertas.html">ofertas</a> de la semana.</p>
+          </li>
+          <li>
+            <h3>Escribinos</h3>
+            <p>Mandanos tu pedido por <a href="https://wa.me/50372229546?text=Hola%20El%20Chambre%2C%20quiero%20hacer%20un%20pedido" target="_blank" rel="noopener">WhatsApp</a> o por el <a href="contacto.html">formulario</a>, con la hora en que pasás.</p>
+          </li>
+          <li>
+            <h3>Pasá a traerlo</h3>
+            <p>Recogelo en Merliot o en La Sultana. Te lo tenemos listo.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- LO QUE ANDAN DICIENDO: testimonios en globos de diálogo alternados.
+         Cada uno es un figure: la cita va en blockquote y quién la dijo en figcaption.
+         OJO: son textos ilustrativos escritos para el proyecto; reemplazar por testimonios reales. -->
+    <section class="seccion" aria-labelledby="titulo-testimonios">
+      <div class="contenedor">
+        <div class="encabezado-seccion">
+          <h2 id="titulo-testimonios">Lo que andan diciendo</h2>
+          <p class="intro">Aquí nadie se guarda nada. Esto es lo que se cuenta de nosotros.</p>
+        </div>
+
+        <div class="testimonios">
+          <figure class="testimonio">
+            <blockquote>
+              <p>Pedí El Sorullo pensando que lo iba a compartir. No lo compartí. No le vayan a decir a mi novia.</p>
+            </blockquote>
+            <figcaption>Cliente de Merliot</figcaption>
+          </figure>
+
+          <figure class="testimonio">
+            <blockquote>
+              <p>Me recomendaron La Despechada después de terminar con mi ex. Mano santa, oíste.</p>
+            </blockquote>
+            <figcaption>Clienta de La Sultana</figcaption>
+          </figure>
+
+          <figure class="testimonio">
+            <blockquote>
+              <p>Salgo de clases y paso directo por un café y una galletona. Ya me saludan por mi nombre.</p>
+            </blockquote>
+            <figcaption>Estudiante, La Sultana</figcaption>
+          </figure>
+
+          <figure class="testimonio">
+            <blockquote>
+              <p>Llevé una caja de pan dulce a la reunión de la oficina y todos me preguntan de dónde es. Yo no suelto el chambre.</p>
+            </blockquote>
+            <figcaption>Cliente de Merliot</figcaption>
+          </figure>
+        </div>
+
+        <p class="nota-testimonios">Testimonios ilustrativos, escritos para este proyecto académico.</p>
+      </div>
+    </section>
+
+    <!-- VISITANOS: las dos sucursales y el horario -->
+    <section class="seccion" aria-labelledby="titulo-visita">
+      <div class="contenedor">
+        <h2 id="titulo-visita">¿Adónde nos vemos?</h2>
+
+        <div class="sucursales">
+          <article class="sucursal">
+            <h3>Merliot</h3>
+            <address>Jardines de Merliot, Av. El Boquerón #25-B, Santa Tecla</address>
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=Avenida+El+Boquer%C3%B3n+Jardines+de+Merliot+Santa+Tecla" target="_blank" rel="noopener">Cómo llegar</a>
+          </article>
+          <article class="sucursal">
+            <h3>La Sultana <span class="sello">Nueva</span></h3>
+            <address>Calle Mediterráneo, La Sultana, Antiguo Cuscatlán. ¡Niña, es atrás de la UCA!</address>
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=Calle+Mediterr%C3%A1neo+La+Sultana+Antiguo+Cuscatl%C3%A1n" target="_blank" rel="noopener">Cómo llegar</a>
+          </article>
+        </div>
+
+        <dl class="horario">
+          <div><dt>Lunes a viernes</dt><dd>6:00 am – 7:00 pm</dd></div>
+          <div><dt>Sábado</dt><dd>7:00 am – 5:00 pm</dd></div>
+        </dl>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="contenedor">
+      <div class="footer-grid">
+        <div>
+          <a class="logo" href="index.html" aria-label="Panadería El Chambre, ir al inicio">
+            <span class="logo-estrellas" aria-hidden="true">★★★★★</span>
+            <span class="logo-nombre">El Chambre</span>
+            <span class="logo-tipo">Panadería</span>
+          </a>
+          <p class="footer-lema">La juventud del pan salvadoreño</p>
+        </div>
+        <nav aria-label="Navegación del pie de página">
+          <h2>Explorá</h2>
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="menu.html">Menú</a></li>
+            <li><a href="ofertas.html">Ofertas</a></li>
+            <li><a href="nosotros.html">Nosotros</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </nav>
+        <div>
+          <h2>Horario</h2>
+          <ul>
+            <li>Lunes a viernes: 6:00 am – 7:00 pm</li>
+            <li>Sábado: 7:00 am – 5:00 pm</li>
+          </ul>
+        </div>
+        <div>
+          <h2>Contacto</h2>
+          <address>
+            <ul>
+              <li><a href="https://wa.me/50372229546" target="_blank" rel="noopener">WhatsApp +503 7222 9546</a></li>
+              <li><a href="https://www.instagram.com/elchambrepanaderia" target="_blank" rel="noopener">Instagram @elchambrepanaderia</a></li>
+              <li>Merliot: Av. El Boquerón #25-B, Santa Tecla</li>
+              <li>La Sultana: Calle Mediterráneo, Antiguo Cuscatlán</li>
+            </ul>
+          </address>
+        </div>
+      </div>
+      <p class="footer-legal">&copy; 2026 Panadería El Chambre. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Botón fijo de WhatsApp: visible en todas las páginas -->
+  <a class="wa-flotante" href="https://wa.me/50372229546?text=Hola%20El%20Chambre%2C%20quiero%20hacer%20un%20pedido" target="_blank" rel="noopener" aria-label="Pedir por WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H9l-5 4v-4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z" fill="currentColor"/></svg>
+    <span>Pedí por WhatsApp</span>
+  </a>
+
+</body>
+</html>
