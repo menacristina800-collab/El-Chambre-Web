@@ -1,0 +1,99 @@
+/* =========================================================
+   Panadería El Chambre — Página nosotros (nosotros.html)
+   ========================================================= */
+
+/* La ilustración se apoya en el borde inferior de la sección */
+.temporada-img {
+  align-self: end;
+  padding-top: 2rem;
+}
+
+/* La ilustración se muestra completa; su fondo rojo se funde con la sección */
+.temporada-img img {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+}
+
+/* --- Nosotros --- */
+.historia {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+/* Frase de la marca en un globo de diálogo (con colita hecha con bordes) */
+.frase-marca {
+  position: relative;
+  justify-self: center;
+  max-width: 440px;
+  background: var(--harina);
+  color: var(--tinta);
+  border-radius: 2rem;
+  padding: 2.2rem 2.4rem;
+  font-family: var(--fuente-titulos);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.1;
+  text-transform: uppercase;
+  transform: rotate(-2deg);
+}
+
+.frase-marca::after {
+  content: "";
+  position: absolute;
+  bottom: -26px;
+  left: 3rem;
+  border-top: 28px solid var(--harina);
+  border-right: 32px solid transparent;
+}
+
+.historia p + p {
+  margin-top: 1rem;
+}
+
+.valores {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+}
+
+.valor {
+  background: var(--blanco);
+  border: 2px solid var(--tinta);
+  border-top: 8px solid var(--rojo);
+  border-radius: var(--radio);
+  padding: 1.8rem;
+}
+
+.valor h3 {
+  font-size: 2.6rem;
+  color: var(--rojo);
+}
+
+.valor p {
+  color: #5b4d44;
+}
+
+/* ===== Responsive y accesibilidad ===== */
+
+@media (max-width: 800px) {
+  .historia {
+    grid-template-columns: 1fr;
+  }
+
+  /* La ilustración se apoya en el borde inferior de la sección */
+  .temporada-img {
+  align-self: end;
+  padding-top: 2rem;
+}
+
+  .temporada-img img {
+    max-width: 380px;
+    margin-inline: auto;
+  }
+
+  .valores {
+    grid-template-columns: 1fr;
+  }
+}
