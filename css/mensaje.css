@@ -1,0 +1,44 @@
+/* =========================================================
+   Panadería El Chambre — Páginas de mensaje: gracias.html y 404.html
+   ========================================================= */
+
+/* Página de gracias */
+.gracias,
+.error-404 {
+  min-height: 60vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+.gracias h1,
+.error-404 h1 {
+  font-size: clamp(3rem, 9vw, 6.5rem);
+  margin-bottom: 1rem;
+}
+
+.gracias p,
+.error-404 p {
+  margin: 0 auto 2rem;
+  font-size: 1.2rem;
+}
+
+.gracias .acciones,
+.error-404 .acciones {
+  justify-content: center;
+}
+
+/* Número 404 grande y en contorno, encima del título */
+.error-404 .codigo-error {
+  margin: 0 auto 0.5rem;
+  font-family: var(--fuente-titulos);
+  font-size: clamp(5rem, 22vw, 12rem);
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 3px var(--rojo);
+}
+
+.chambrito-centro {
+  margin: 0 auto 1.5rem;
+  text-align: left;
+}
