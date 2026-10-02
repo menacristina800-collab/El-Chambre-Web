@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 190" role="img" aria-label="Chambrito, un pan dulce que cuenta chismes">
+  <!-- Sombra -->
+  <ellipse cx="110" cy="178" rx="78" ry="8" fill="#000" opacity="0.18"/>
+  <!-- Cuerpo del pan -->
+  <path d="M24 138 C24 62 62 30 110 30 C158 30 196 62 196 138 C196 164 172 170 110 170 C48 170 24 164 24 138 Z"
+        fill="#e3a257" stroke="#1b1614" stroke-width="5" stroke-linejoin="round"/>
+  <!-- Costra de arriba (azúcar tipo concha) -->
+  <path d="M40 92 C60 44 160 44 180 92 C150 76 70 76 40 92 Z" fill="#f6dfb4" stroke="#1b1614" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M70 60 Q84 74 78 86 M110 50 L110 80 M150 60 Q136 74 142 86" fill="none" stroke="#c98a3c" stroke-width="4" stroke-linecap="round"/>
+  <!-- Cejas pícaras -->
+  <path d="M68 98 Q80 90 94 96" fill="none" stroke="#1b1614" stroke-width="4.5" stroke-linecap="round"/>
+  <path d="M118 92 Q132 86 146 94" fill="none" stroke="#1b1614" stroke-width="4.5" stroke-linecap="round"/>
+  <!-- Ojos mirando de reojo -->
+  <ellipse cx="82" cy="113" rx="12" ry="13" fill="#fffaf2" stroke="#1b1614" stroke-width="4"/>
+  <ellipse cx="132" cy="110" rx="12" ry="13" fill="#fffaf2" stroke="#1b1614" stroke-width="4"/>
+  <circle cx="88" cy="115" r="5.5" fill="#1b1614"/>
+  <circle cx="138" cy="112" r="5.5" fill="#1b1614"/>
+  <circle cx="90" cy="113" r="1.8" fill="#fff"/>
+  <circle cx="140" cy="110" r="1.8" fill="#fff"/>
+  <!-- Cachetes -->
+  <ellipse cx="66" cy="136" rx="10" ry="6" fill="#ef3c35" opacity="0.35"/>
+  <ellipse cx="150" cy="134" rx="10" ry="6" fill="#ef3c35" opacity="0.35"/>
+  <!-- Boca susurrando -->
+  <ellipse cx="112" cy="142" rx="7" ry="8" fill="#1b1614"/>
+  <!-- Manita tapando la boca, como el chismoso -->
+  <path transform="translate(-12 0)" d="M150 158 C140 150 136 138 142 128 C146 122 152 124 152 130 C154 120 162 120 163 128 C166 122 173 125 171 133 C176 130 181 135 177 142 C172 154 164 160 150 158 Z"
+        fill="#e3a257" stroke="#1b1614" stroke-width="4" stroke-linejoin="round"/>
+  <!-- Destellos -->
+  <path d="M200 40 l4 10 l10 4 l-10 4 l-4 10 l-4 -10 l-10 -4 l10 -4 Z" fill="#ef3c35"/>
+  <path d="M22 44 l3 7 l7 3 l-7 3 l-3 7 l-3 -7 l-7 -3 l7 -3 Z" fill="#1b1614"/>
+</svg>
