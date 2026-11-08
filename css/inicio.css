@@ -394,6 +394,35 @@
   }
 }
 
+/* Celulares, tablets y pantallas angostas: el chisme deja de flotar encima
+   del producto y pasa a ser una franja dentro de la tarjeta */
+@media (hover: none), (max-width: 800px) {
+  /* Tarjetas chicas (foto a la izquierda, texto a la derecha):
+     el chisme baja a una segunda fila que ocupa todo el ancho */
+  .producto:not(.producto-grande) {
+    flex-wrap: wrap;
+  }
+
+  .producto:not(.producto-grande) .producto-info {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  .producto:not(.producto-grande) .chisme {
+    flex: 0 0 calc(100% - 2rem);
+  }
+
+  /* Todas las tarjetas: el chisme va al final, en el flujo normal */
+  .chisme {
+    position: static;
+    order: 3;
+    margin: 0 1rem 1.2rem;
+    opacity: 1;
+    transform: rotate(-1deg);
+    transition: none;
+  }
+}
+
 @media (max-width: 800px) {
   .pasos {
     grid-template-columns: 1fr;
