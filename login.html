@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Iniciar sesión | El Chambre</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+
+<body>
+    <main class="app-wrap" style="max-width:520px"><a class="app-brand" href="index.html">El Chambre</a>
+        <section class="panel">
+            <h1>Iniciar sesión</h1>
+            <p class="muted">La juventud del pan salvadoreño.</p>
+            <form id="form-login"><label for="email">Correo electrónico</label><input id="email" name="email"
+                    type="email" autocomplete="email" required>
+                <label for="password">Contraseña</label><input id="password" name="password" type="password"
+                    autocomplete="current-password" required>
+                <p id="mensaje" class="msg" role="status" aria-live="polite"></p><button type="submit">Ingresar</button>
+            </form>
+            <p>¿No tenés cuenta? <a href="registro.html">Registrate aquí</a>.</p>
+            <p><a href="index.html">← Volver al sitio</a></p>
+        </section>
+    </main>
+    <script type="module" src="js/auth.js"></script>
+</body>
+
+</html>
