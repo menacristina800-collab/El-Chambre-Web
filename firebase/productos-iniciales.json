@@ -1,0 +1,72 @@
+[
+  {
+    "nombre": "El Sorullo",
+    "precio": 3.5,
+    "categoria": "Postres",
+    "descripcion": "Brownie, sorbete y salsa de la casa.",
+    "activo": true
+  },
+  {
+    "nombre": "Finolis",
+    "precio": 3.5,
+    "categoria": "Postres",
+    "descripcion": "Galletona XXL, sorbete de vainilla y salsa secreta.",
+    "activo": true
+  },
+  {
+    "nombre": "Apleneitor",
+    "precio": 3.5,
+    "categoria": "Postres",
+    "descripcion": "Pie de manzana, sorbete y salsa secreta.",
+    "activo": true
+  },
+  {
+    "nombre": "La Despechada",
+    "precio": 2.95,
+    "categoria": "Postres",
+    "descripcion": "Semita pacha, sorbete y salsa secreta.",
+    "activo": true
+  },
+  {
+    "nombre": "Galletona Red Velvet",
+    "precio": 1.95,
+    "categoria": "Postres",
+    "descripcion": "Red velvet en versión galleta grande.",
+    "activo": true
+  },
+  {
+    "nombre": "Galletona XL chocochip",
+    "precio": 1.5,
+    "categoria": "Postres",
+    "descripcion": "Galleta grande con chispas de chocolate.",
+    "activo": true
+  },
+  {
+    "nombre": "Flauta XL",
+    "precio": 1.75,
+    "categoria": "Pan dulce",
+    "descripcion": "Flauta grande, directo de la vitrina.",
+    "activo": true
+  },
+  {
+    "nombre": "Dona de dulce de leche",
+    "precio": 1.75,
+    "categoria": "Pan dulce",
+    "descripcion": "Rellena de dulce de leche.",
+    "activo": true
+  },
+  {
+    "nombre": "Tarta de manzana",
+    "precio": 5.75,
+    "categoria": "Temporada",
+    "descripcion": "Tarta entera, ideal para compartir. Por encargo.",
+    "activo": true
+  },
+  {
+    "nombre": "Combo Chambre muy íntimo",
+    "precio": 3.95,
+    "categoria": "Combos",
+    "descripcion": "Calzone socado, ChambroDONA con chispas y Coca-Cola.",
+    "activo": true
+  }
+]
