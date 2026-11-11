@@ -51,10 +51,10 @@
     <section class="seccion" aria-label="Formulario e información de contacto">
       <div class="contenedor contacto-grid">
 
-        <!-- Formulario: validación solo con atributos HTML (sin JavaScript) -->
-        <form class="formulario" action="gracias.html" method="get" aria-labelledby="titulo-form">
+        <!-- Formulario de contacto -->
+        <form class="formulario" id="form-contacto" novalidate aria-labelledby="titulo-form">
           <h2 id="titulo-form">Contanos el chambre</h2>
-          <p>Hacé tu pedido o encargo y te confirmamos por WhatsApp. Los campos opcionales se pueden dejar vacíos.</p>
+          <p>Mandanos tu consulta o encargo y te confirmamos por WhatsApp. Si ya tenés cuenta, también podés pedir en línea desde <a href="pages/pedidos.html">Mis pedidos</a>. Los campos opcionales se pueden dejar vacíos.</p>
 
           <div class="form-grid">
             <div class="campo">
@@ -132,8 +132,10 @@
               </label>
             </div>
 
+            <p id="mensaje-contacto" class="form-estado" role="status" aria-live="polite" hidden></p>
+
             <div class="form-acciones">
-              <button class="btn btn-rojo" type="submit">Enviar pedido</button>
+              <button class="btn btn-rojo" type="submit">Enviar mensaje</button>
               <button class="btn btn-borde" type="reset">Borrar formulario</button>
             </div>
           </div>
@@ -254,6 +256,6 @@
     <span>Pedí por WhatsApp</span>
   </a>
 
+  <script type="module" src="js/contacto.js"></script>
 </body>
 </html>
-

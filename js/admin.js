@@ -51,4 +51,18 @@ async function cargarPedidos(){
 }
 $("#lista-admin-pedidos").addEventListener("change",async e=>{const id=e.target.dataset.status;if(!id)return;try{await updateDoc(doc(db,"pedidos",id),{estado:e.target.value,actualizadoEn:serverTimestamp()});await cargarPedidos();}catch(err){alert("No se pudo actualizar el estado. Revisá las reglas.");}});
 $("#filtro-estado").addEventListener("change",cargarPedidos);
+const MOTIVOS={pedido:"Pedido para recoger",evento:"Reunión o evento",panetones:"Panetones",tarta:"Tarta de manzana",consulta:"Consulta general"};
+async function cargarConsultas(){
+ const snap=await getDocs(query(collection(db,"consultas"),orderBy("creadoEn","desc")));const lista=snap.docs.map(d=>({id:d.id,...d.data()}));
+ $("#resumen-consultas").textContent=`${lista.length} consultas · ${lista.filter(c=>!c.leida).length} sin leer`;
+ $("#lista-consultas").innerHTML=lista.length?lista.map(c=>`<article class="order-card"><span class="badge">${c.leida?"Leída":"Nueva"}</span><h3>${esc(c.nombre)}</h3><p>${esc(MOTIVOS[c.motivo]||c.motivo)} · Tel. ${esc(c.telefono)}${c.correo?" · "+esc(c.correo):""}</p><p>${esc(c.mensaje)}</p><p class="muted">${[c.sucursal,c.fecha,c.hora,c.cantidad?c.cantidad+" uds.":""].filter(Boolean).map(esc).join(" · ")}</p><div class="actions"><button class="btn-secondary" data-leida="${esc(c.id)}" data-valor="${c.leida?"0":"1"}">${c.leida?"Marcar como nueva":"Marcar como leída"}</button><button class="btn-secondary" data-borrar-consulta="${esc(c.id)}">Eliminar</button></div></article>`).join(""):'<p class="empty">No hay consultas.</p>';
+}
+$("#lista-consultas").addEventListener("click",async e=>{
+ const leida=e.target.dataset.leida, borrar=e.target.dataset.borrarConsulta;
+ try{
+  if(leida){await updateDoc(doc(db,"consultas",leida),{leida:e.target.dataset.valor==="1"});await cargarConsultas();}
+  if(borrar&&confirm("¿Eliminar esta consulta?")){await deleteDoc(doc(db,"consultas",borrar));await cargarConsultas();}
+ }catch(err){alert("No se pudo actualizar la consulta. Revisá las reglas.");}
+});
 try{await cargarProductos();await cargarPedidos();}catch(e){say("Error al cargar información. Confirmá que este usuario tenga rol admin.",true);}
+try{await cargarConsultas();}catch(e){$("#resumen-consultas").textContent="No se pudieron cargar las consultas.";}

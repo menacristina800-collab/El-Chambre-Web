@@ -6,8 +6,6 @@
       "firestore.rules",
       ".firebaserc",
       ".firebaserc.example",
-      "package.json",
-      "package-lock.json",
       "README.md",
       "**/.*",
       "**/node_modules/**"

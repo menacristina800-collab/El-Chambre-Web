@@ -42,6 +42,32 @@ service cloud.firestore {
       allow update, delete: if isAdmin();
     }
 
+    // Formulario de contacto: cualquier visitante puede enviar una consulta (con campos validados);
+    // solo el administrador puede leerla, marcarla como leída o eliminarla.
+    match /consultas/{consultaId} {
+      allow create: if request.resource.data.keys().hasOnly(['nombre','telefono','correo','motivo',
+             'fecha','hora','cantidad','sucursal','mensaje','leida','creadoEn'])
+        && request.resource.data.nombre is string
+        && request.resource.data.nombre.size() >= 3 && request.resource.data.nombre.size() <= 60
+        && request.resource.data.telefono is string
+        && request.resource.data.telefono.matches('^[267][0-9]{3}-?[0-9]{4}$')
+        && request.resource.data.correo is string && request.resource.data.correo.size() <= 100
+        && request.resource.data.motivo in ['pedido','evento','panetones','tarta','consulta']
+        && request.resource.data.fecha is string && request.resource.data.fecha.size() <= 10
+        && request.resource.data.hora is string && request.resource.data.hora.size() <= 5
+        && (request.resource.data.cantidad == null
+            || (request.resource.data.cantidad is int
+                && request.resource.data.cantidad >= 1 && request.resource.data.cantidad <= 300))
+        && request.resource.data.sucursal in ['','merliot','la-sultana']
+        && request.resource.data.mensaje is string
+        && request.resource.data.mensaje.size() >= 10 && request.resource.data.mensaje.size() <= 500
+        && request.resource.data.leida == false
+        && request.resource.data.creadoEn == request.time;
+      allow read, delete: if isAdmin();
+      allow update: if isAdmin()
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['leida']);
+    }
+
     match /pedidos/{pedidoId} {
       allow create: if signedIn()
         && request.resource.data.usuarioId == request.auth.uid

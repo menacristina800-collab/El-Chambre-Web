@@ -328,3 +328,36 @@ fieldset.campo {
   text-align: left;
   min-height: 1.4em;
 }
+
+/* ===== Mensaje de estado del formulario (js/contacto.js) ===== */
+.form-estado {
+  max-width: none;
+  margin: 0.5rem 0 0;
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+  font-weight: 700;
+  grid-column: 1 / -1;
+}
+
+.form-estado[data-tipo="ok"] {
+  background: #e3f3e8;
+  color: #1e5c34;
+  border: 2px solid #8cc9a2;
+}
+
+.form-estado[data-tipo="error"] {
+  background: #fde8e6;
+  color: #8a1c16;
+  border: 2px solid #e8a39e;
+}
+
+.form-estado[data-tipo="info"] {
+  background: #fff3d6;
+  color: #5b4300;
+  border: 2px solid #e5c56b;
+}
+
+.formulario [aria-invalid="true"] {
+  border-color: var(--rojo);
+  background: #fde8e6;
+}
