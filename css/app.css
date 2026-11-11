@@ -16,3 +16,6 @@ table{width:100%;border-collapse:collapse;background:#fff}th,td{text-align:left;
 .badge{display:inline-block;border-radius:20px;padding:5px 10px;background:#f5e6d6;font-size:12px;font-weight:800}
 .muted{color:#6b625b}.empty{padding:24px;text-align:center;color:#6b625b}
 @media(max-width:600px){.app-wrap{margin:20px auto}.panel{padding:17px}table{font-size:13px}th,td{padding:8px}}
+
+#lista-admin-pedidos{overflow-x:auto}
+#lista-admin-pedidos table{min-width:640px}

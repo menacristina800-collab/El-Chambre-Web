@@ -6,6 +6,7 @@ const $=s=>document.querySelector(s), money=n=>new Intl.NumberFormat("es-SV",{st
 let productos=[];
 const msg=(t,err=false)=>{ $("#mensaje").textContent=t;$("#mensaje").dataset.tipo=err?"error":"ok"; };
 const {user}=await requireUser();
+$("#fecha").min=new Date(Date.now()-new Date().getTimezoneOffset()*60000).toISOString().slice(0,10);
 try{
  const ps=await getDocs(query(collection(db,"productos"),where("activo","==",true)));
  productos=ps.docs.map(d=>({id:d.id,...d.data()}));

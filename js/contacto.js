@@ -9,6 +9,9 @@ const RE_TEL = /^[267]\d{3}-?\d{4}$/;
 const RE_MAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const MOTIVOS = ["pedido", "evento", "panetones", "tarta", "consulta"];
 
+// Fecha mínima = hoy (hora local), calculada al cargar para que nunca quede desactualizada
+form.elements.fecha.min = new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+
 const mostrar = (texto, tipo) => { estado.textContent = texto; estado.dataset.tipo = tipo; estado.hidden = false; };
 const limpiar = () => { estado.hidden = true; form.querySelectorAll("[aria-invalid]").forEach((el) => el.removeAttribute("aria-invalid")); };
 

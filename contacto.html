@@ -51,7 +51,7 @@
     <section class="seccion" aria-label="Formulario e información de contacto">
       <div class="contenedor contacto-grid">
 
-        <!-- Formulario de contacto -->
+        <!-- Formulario de contacto: validado con JavaScript (js/contacto.js) y guardado en Firestore -->
         <form class="formulario" id="form-contacto" novalidate aria-labelledby="titulo-form">
           <h2 id="titulo-form">Contanos el chambre</h2>
           <p>Mandanos tu consulta o encargo y te confirmamos por WhatsApp. Si ya tenés cuenta, también podés pedir en línea desde <a href="pages/pedidos.html">Mis pedidos</a>. Los campos opcionales se pueden dejar vacíos.</p>
@@ -91,7 +91,7 @@
 
             <div class="campo">
               <label for="fecha">Fecha de entrega <span class="opcional">(opcional)</span></label>
-              <input type="date" id="fecha" name="fecha" min="2026-09-29" max="2026-12-31">
+              <input type="date" id="fecha" name="fecha">
             </div>
 
             <div class="campo">
