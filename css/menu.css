@@ -34,14 +34,14 @@
 }
 
 /* Pestaña activa: el label que va justo después del radio marcado */
-.pestana-radio:checked + .pestana {
+.pestana-radio:checked+.pestana {
   background: var(--harina);
   border-color: var(--harina);
   color: var(--tinta);
 }
 
 /* Anillo de foco visible cuando se navega con el teclado */
-.pestana-radio:focus-visible + .pestana {
+.pestana-radio:focus-visible+.pestana {
   outline: 3px solid var(--corteza);
   outline-offset: 3px;
 }
@@ -54,11 +54,11 @@
 }
 
 /* Se muestra solo el panel cuyo radio está marcado */
-#tab-postres:checked ~ #postres,
-#tab-galletonas:checked ~ #galletonas,
-#tab-pan:checked ~ #pan,
-#tab-combo:checked ~ #combo,
-#tab-cafe:checked ~ #cafe {
+#tab-postres:checked~#postres,
+#tab-galletonas:checked~#galletonas,
+#tab-pan:checked~#pan,
+#tab-combo:checked~#combo,
+#tab-cafe:checked~#cafe {
   display: block;
 }
 
@@ -290,6 +290,7 @@
 }
 
 @media (max-width: 560px) {
+
   /* Ficha en una sola columna: foto arriba, texto abajo */
   .ficha-caja {
     grid-template-columns: 1fr;

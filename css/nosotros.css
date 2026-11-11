@@ -48,7 +48,7 @@
   border-right: 32px solid transparent;
 }
 
-.historia p + p {
+.historia p+p {
   margin-top: 1rem;
 }
 
@@ -84,9 +84,9 @@
 
   /* La ilustración se apoya en el borde inferior de la sección */
   .temporada-img {
-  align-self: end;
-  padding-top: 2rem;
-}
+    align-self: end;
+    padding-top: 2rem;
+  }
 
   .temporada-img img {
     max-width: 380px;

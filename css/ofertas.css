@@ -8,7 +8,7 @@
 }
 
 /* Separación entre un texto introductorio y la cuadrícula que le sigue */
-.intro + .tamanos {
+.intro+.tamanos {
   margin-top: 2rem;
 }
 

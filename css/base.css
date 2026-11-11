@@ -11,14 +11,19 @@
   /* Rojo exacto de marca: solo en la sección de panetones, para que la
      ilustración (que trae ese rojo de fondo) se funda con la sección */
   --rojo-marca: #ef3c35;
-  --rojo-profundo: #a31f1a; /* para degradados: le da profundidad al rojo */
+  --rojo-profundo: #a31f1a;
+  /* para degradados: le da profundidad al rojo */
   --rojo-oscuro: #c92a24;
-  --tinta: #1b1614;        /* negro cálido, como pan tostado */
+  --tinta: #1b1614;
+  /* negro cálido, como pan tostado */
   --tinta-2: #2a2320;
-  --harina: #f5ecdd;       /* crema de harina */
+  --harina: #f5ecdd;
+  /* crema de harina */
   --harina-2: #eadcc4;
-  --corteza: #d99a3e;      /* dorado de corteza para precios */
-  --verde: #1f3a2c;        /* verde botella de sus posts navideños */
+  --corteza: #d99a3e;
+  /* dorado de corteza para precios */
+  --verde: #1f3a2c;
+  /* verde botella de sus posts navideños */
   --blanco: #fffaf2;
   --texto-suave: #cbbfb2;
 
@@ -464,7 +469,7 @@ p {
   margin-right: 0.4rem;
 }
 
-.temporada-texto p + p {
+.temporada-texto p+p {
   margin-top: 1rem;
 }
 
@@ -538,7 +543,8 @@ p {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  background: #15803d;  /* verde oscuro: 5:1 con el texto blanco */
+  background: #15803d;
+  /* verde oscuro: 5:1 con el texto blanco */
   color: #fff;
   text-decoration: none;
   font-weight: 800;
@@ -558,9 +564,12 @@ p {
 }
 
 @keyframes susurro {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: rotate(0deg);
   }
+
   50% {
     transform: rotate(-5deg);
   }
@@ -575,6 +584,7 @@ p {
 }
 
 @media (max-width: 800px) {
+
   /* En móvil el header ocupa dos filas; se deja de fijar para no tapar contenido */
   .site-header {
     position: static;

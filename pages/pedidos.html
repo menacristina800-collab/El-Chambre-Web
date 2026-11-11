@@ -1,5 +1,58 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Mis pedidos | El Chambre</title><link rel="stylesheet" href="../css/base.css"><link rel="stylesheet" href="../css/app.css"></head><body><main class="app-wrap"><header class="app-head"><a class="app-brand" href="../index.html">El Chambre</a><nav class="app-nav"><a href="pedidos.html">Mis pedidos</a><a href="admin.html">Administración</a><a href="../menu.html">Menú público</a><button class="btn-secondary" data-logout type="button">Cerrar sesión</button></nav></header>
-<h1>Hola, <span data-user-name>chambroso</span></h1><p class="muted">Elegí tus favoritos y prepará tu pedido para recoger en una de nuestras sucursales.</p>
-<section class="panel"><h2>Crear un pedido</h2><form id="form-pedido"><div class="grid"><div><label for="producto">Producto</label><select id="producto" name="producto" required><option value="">Cargando productos…</option></select></div><div><label for="cantidad">Cantidad</label><input id="cantidad" name="cantidad" type="number" min="1" max="30" value="1" required></div><div><label for="sucursal">Sucursal para recoger</label><select id="sucursal" name="sucursal" required><option value="">Elegí una</option><option>Merliot</option><option>La Sultana</option></select></div><div><label for="fecha">Fecha de recogida</label><input id="fecha" name="fecha" type="date" required></div><div><label for="hora">Hora de recogida</label><input id="hora" name="hora" type="time" min="06:00" max="19:00" step="900" required></div></div><label for="nota">Notas (opcional)</label><textarea id="nota" name="nota" maxlength="300" placeholder="Indicaciones para tu pedido"></textarea><p id="mensaje" class="msg" role="status" aria-live="polite"></p><button type="submit">Enviar pedido</button></form></section>
-<section class="panel"><div class="app-head"><h2>Mis pedidos</h2><input id="buscar-pedidos" style="max-width:260px" placeholder="Buscar por estado…"></div><div id="lista-pedidos" class="grid"><p class="empty">Cargando tus pedidos…</p></div></section>
-<script type="module" src="../js/pedidos.js"></script></main></body></html>
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Mis pedidos | El Chambre</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/app.css">
+</head>
+
+<body>
+    <main class="app-wrap">
+        <header class="app-head"><a class="app-brand" href="../index.html">El Chambre</a>
+            <nav class="app-nav"><a href="pedidos.html">Mis pedidos</a><a href="admin.html">Administración</a><a
+                    href="../menu.html">Menú público</a><button class="btn-secondary" data-logout type="button">Cerrar
+                    sesión</button></nav>
+        </header>
+        <h1>Hola, <span data-user-name>chambroso</span></h1>
+        <p class="muted">Elegí tus favoritos y prepará tu pedido para recoger en una de nuestras sucursales.</p>
+        <section class="panel">
+            <h2>Crear un pedido</h2>
+            <form id="form-pedido">
+                <div class="grid">
+                    <div><label for="producto">Producto</label><select id="producto" name="producto" required>
+                            <option value="">Cargando productos…</option>
+                        </select></div>
+                    <div><label for="cantidad">Cantidad</label><input id="cantidad" name="cantidad" type="number"
+                            min="1" max="30" value="1" required></div>
+                    <div><label for="sucursal">Sucursal para recoger</label><select id="sucursal" name="sucursal"
+                            required>
+                            <option value="">Elegí una</option>
+                            <option>Merliot</option>
+                            <option>La Sultana</option>
+                        </select></div>
+                    <div><label for="fecha">Fecha de recogida</label><input id="fecha" name="fecha" type="date"
+                            required></div>
+                    <div><label for="hora">Hora de recogida</label><input id="hora" name="hora" type="time" min="06:00"
+                            max="19:00" step="900" required></div>
+                </div><label for="nota">Notas (opcional)</label><textarea id="nota" name="nota" maxlength="300"
+                    placeholder="Indicaciones para tu pedido"></textarea>
+                <p id="mensaje" class="msg" role="status" aria-live="polite"></p><button type="submit">Enviar
+                    pedido</button>
+            </form>
+        </section>
+        <section class="panel">
+            <div class="app-head">
+                <h2>Mis pedidos</h2><input id="buscar-pedidos" style="max-width:260px" placeholder="Buscar por estado…">
+            </div>
+            <div id="lista-pedidos" class="grid">
+                <p class="empty">Cargando tus pedidos…</p>
+            </div>
+        </section>
+        <script type="module" src="../js/pedidos.js"></script>
+    </main>
+</body>
+
+</html>

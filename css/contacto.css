@@ -138,13 +138,13 @@ fieldset.campo {
   cursor: pointer;
 }
 
-.opcion input:checked + span {
+.opcion input:checked+span {
   background: var(--tinta);
   border-color: var(--tinta);
   color: var(--blanco);
 }
 
-.opcion input:focus-visible + span {
+.opcion input:focus-visible+span {
   outline: 3px solid var(--corteza);
   outline-offset: 2px;
 }
