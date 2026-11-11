@@ -1,0 +1,51 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() { return request.auth != null; }
+    function isAdmin() {
+      return signedIn()
+        && get(/databases/$(database)/documents/usuarios/$(request.auth.uid)).data.rol == 'admin';
+    }
+
+    match /usuarios/{uid} {
+      allow create: if signedIn() && request.auth.uid == uid
+        && request.resource.data.rol == 'cliente'
+        && request.resource.data.keys().hasOnly(['nombre','email','rol','creadoEn']);
+      allow read: if signedIn() && (request.auth.uid == uid || isAdmin());
+      allow update: if isAdmin()
+        || (signedIn() && request.auth.uid == uid
+          && request.resource.data.rol == resource.data.rol
+          && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['nombre','email']));
+      allow delete: if isAdmin();
+    }
+
+    match /productos/{productoId} {
+      allow read: if resource.data.activo == true || isAdmin();
+      allow create: if isAdmin()
+        && request.resource.data.nombre is string
+        && request.resource.data.precio is number
+        && request.resource.data.precio > 0
+        && request.resource.data.activo is bool;
+      allow update, delete: if isAdmin();
+    }
+
+    match /pedidos/{pedidoId} {
+      allow create: if signedIn()
+        && request.resource.data.usuarioId == request.auth.uid
+        && request.resource.data.estado == 'Pendiente'
+        && request.resource.data.cantidad is int
+        && request.resource.data.cantidad >= 1
+        && request.resource.data.cantidad <= 30
+        && request.resource.data.total is number
+        && request.resource.data.total > 0
+        && request.resource.data.productoId is string
+        && request.resource.data.productoNombre is string
+        && request.resource.data.sucursal in ['Merliot','La Sultana'];
+      allow read: if signedIn() && (resource.data.usuarioId == request.auth.uid || isAdmin());
+      allow update: if isAdmin()
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['estado','actualizadoEn'])
+        && request.resource.data.estado in ['Pendiente','Preparando','Listo','Entregado','Cancelado'];
+      allow delete: if isAdmin();
+    }
+  }
+}
