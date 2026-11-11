@@ -13,6 +13,7 @@ if (formRegistro) {
     const nombre = formRegistro.nombre.value.trim();
     const email = formRegistro.email.value.trim();
     const password = formRegistro.password.value;
+    if (nombre.length < 2 || nombre.length > 60) return say("El nombre debe tener entre 2 y 60 caracteres.", true);
     if (password.length < 8) return say("La contraseña debe tener al menos 8 caracteres.", true);
     const btn = formRegistro.querySelector("button[type=submit]");
     btn.disabled = true; say("Creando cuenta…");

@@ -7,9 +7,22 @@ service cloud.firestore {
         && get(/databases/$(database)/documents/usuarios/$(request.auth.uid)).data.rol == 'admin';
     }
 
+    // Un pedido es válido solo si el producto existe, está activo y el precio/total coinciden
+    // con el precio real guardado en Firestore (el cliente no puede inventar el importe).
+    function precioValido(d) {
+      let p = get(/databases/$(database)/documents/productos/$(d.productoId)).data;
+      return p.activo == true
+        && d.precioUnitario == p.precio
+        && d.productoNombre == p.nombre
+        && math.abs(d.total - p.precio * d.cantidad) < 0.01;
+    }
+
     match /usuarios/{uid} {
       allow create: if signedIn() && request.auth.uid == uid
         && request.resource.data.rol == 'cliente'
+        && request.resource.data.nombre is string
+        && request.resource.data.nombre.size() >= 2
+        && request.resource.data.nombre.size() <= 60
         && request.resource.data.keys().hasOnly(['nombre','email','rol','creadoEn']);
       allow read: if signedIn() && (request.auth.uid == uid || isAdmin());
       allow update: if isAdmin()
@@ -40,7 +53,11 @@ service cloud.firestore {
         && request.resource.data.total > 0
         && request.resource.data.productoId is string
         && request.resource.data.productoNombre is string
-        && request.resource.data.sucursal in ['Merliot','La Sultana'];
+        && request.resource.data.sucursal in ['Merliot','La Sultana']
+        && request.resource.data.keys().hasOnly(['usuarioId','cliente','productoId','productoNombre',
+             'precioUnitario','cantidad','total','sucursal','fecha','hora','nota','estado','creadoEn'])
+        && request.resource.data.creadoEn == request.time
+        && precioValido(request.resource.data);
       allow read: if signedIn() && (resource.data.usuarioId == request.auth.uid || isAdmin());
       allow update: if isAdmin()
         && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['estado','actualizadoEn'])

@@ -1,5 +1,6 @@
 import {db} from "./firebase.js";
 import {requireUser} from "./session.js";
+import {esc} from "./utils.js";
 import {collection,addDoc,getDocs,doc,updateDoc,deleteDoc,query,orderBy,serverTimestamp} from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
 const $=s=>document.querySelector(s), money=n=>new Intl.NumberFormat("es-SV",{style:"currency",currency:"USD"}).format(n);
 await requireUser({admin:true});
@@ -9,7 +10,7 @@ async function cargarProductos(){
  const snap=await getDocs(collection(db,"productos"));productos=snap.docs.map(d=>({id:d.id,...d.data()}));
  const term=$("#buscar-productos").value.toLowerCase();
  const list=productos.filter(p=>(p.nombre+" "+p.categoria).toLowerCase().includes(term));
- $("#lista-productos").innerHTML=list.length?list.map(p=>`<article class="product-card"><h3>${p.nombre}</h3><p>${p.descripcion||""}</p><p>${p.categoria} · <strong>${money(p.precio)}</strong></p><span class="badge">${p.activo?"Activo":"Inactivo"}</span><div class="actions"><button data-edit="${p.id}">Editar</button><button class="btn-secondary" data-toggle="${p.id}">${p.activo?"Desactivar":"Activar"}</button><button class="btn-secondary" data-delete="${p.id}">Eliminar</button></div></article>`).join(""):'<p class="empty">No hay productos.</p>';
+ $("#lista-productos").innerHTML=list.length?list.map(p=>`<article class="product-card"><h3>${esc(p.nombre)}</h3><p>${esc(p.descripcion)}</p><p>${esc(p.categoria)} · <strong>${money(p.precio)}</strong></p><span class="badge">${p.activo?"Activo":"Inactivo"}</span><div class="actions"><button data-edit="${esc(p.id)}">Editar</button><button class="btn-secondary" data-toggle="${esc(p.id)}">${p.activo?"Desactivar":"Activar"}</button><button class="btn-secondary" data-delete="${esc(p.id)}">Eliminar</button></div></article>`).join(""):'<p class="empty">No hay productos.</p>';
 }
 $("#form-producto").addEventListener("submit",async e=>{
  e.preventDefault();const f=e.currentTarget, id=f.elements.id.value, data={nombre:f.nombre.value.trim(),precio:Number(f.precio.value),categoria:f.categoria.value,descripcion:f.descripcion.value.trim(),activo:true,actualizadoEn:serverTimestamp()};
@@ -46,7 +47,7 @@ async function cargarPedidos(){
  const snap=await getDocs(query(collection(db,"pedidos"),orderBy("creadoEn","desc")));pedidos=snap.docs.map(d=>({id:d.id,...d.data()}));
  const estado=$("#filtro-estado").value, rows=pedidos.filter(p=>!estado||p.estado===estado);
  $("#resumen").textContent=`${pedidos.length} pedidos registrados · ${money(pedidos.filter(p=>p.estado!=="Cancelado").reduce((a,p)=>a+(Number(p.total)||0),0))} en pedidos no cancelados`;
- $("#lista-admin-pedidos").innerHTML=rows.length?`<table><thead><tr><th>Cliente / Producto</th><th>Recogida</th><th>Total</th><th>Estado</th><th>Actualizar</th></tr></thead><tbody>${rows.map(p=>`<tr><td>${p.cliente||"Cliente"}<br>${p.productoNombre} × ${p.cantidad}</td><td>${p.sucursal}<br>${p.fecha} ${p.hora}</td><td>${money(p.total)}</td><td>${p.estado}</td><td><select data-status="${p.id}"><option ${p.estado==="Pendiente"?"selected":""}>Pendiente</option><option ${p.estado==="Preparando"?"selected":""}>Preparando</option><option ${p.estado==="Listo"?"selected":""}>Listo</option><option ${p.estado==="Entregado"?"selected":""}>Entregado</option><option ${p.estado==="Cancelado"?"selected":""}>Cancelado</option></select></td></tr>`).join("")}</tbody></table>`:'<p class="empty">No hay pedidos para este filtro.</p>';
+ $("#lista-admin-pedidos").innerHTML=rows.length?`<table><thead><tr><th>Cliente / Producto</th><th>Recogida</th><th>Total</th><th>Estado</th><th>Actualizar</th></tr></thead><tbody>${rows.map(p=>`<tr><td>${esc(p.cliente)||"Cliente"}<br>${esc(p.productoNombre)} × ${esc(p.cantidad)}</td><td>${esc(p.sucursal)}<br>${esc(p.fecha)} ${esc(p.hora)}</td><td>${money(p.total)}</td><td>${esc(p.estado)}</td><td><select data-status="${esc(p.id)}" aria-label="Estado del pedido"><option ${p.estado==="Pendiente"?"selected":""}>Pendiente</option><option ${p.estado==="Preparando"?"selected":""}>Preparando</option><option ${p.estado==="Listo"?"selected":""}>Listo</option><option ${p.estado==="Entregado"?"selected":""}>Entregado</option><option ${p.estado==="Cancelado"?"selected":""}>Cancelado</option></select></td></tr>`).join("")}</tbody></table>`:'<p class="empty">No hay pedidos para este filtro.</p>';
 }
 $("#lista-admin-pedidos").addEventListener("change",async e=>{const id=e.target.dataset.status;if(!id)return;try{await updateDoc(doc(db,"pedidos",id),{estado:e.target.value,actualizadoEn:serverTimestamp()});await cargarPedidos();}catch(err){alert("No se pudo actualizar el estado. Revisá las reglas.");}});
 $("#filtro-estado").addEventListener("change",cargarPedidos);
