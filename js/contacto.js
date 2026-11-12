@@ -73,7 +73,7 @@ form.addEventListener("submit", async (ev) => {
   } catch (err) {
     const sinPermiso = err?.code === "permission-denied";
     mostrar(sinPermiso ? "No se pudo enviar: el servidor rechazó el mensaje. Revisá los datos e intentá de nuevo."
-                       : "No se pudo enviar tu mensaje. Revisá tu conexión e intentá de nuevo, o escribinos por WhatsApp.", "error");
+      : "No se pudo enviar tu mensaje. Revisá tu conexión e intentá de nuevo, o escribinos por WhatsApp.", "error");
     boton.disabled = false; boton.textContent = textoOriginal;
   }
 });
